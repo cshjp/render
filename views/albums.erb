@@ -4,8 +4,8 @@
     <h1>Albums</h1>
     <a href="/albums/new">Add a new album here</a><br><br>
     <% @albums.each do |album| %>
-      <a href="/albums/<%= album.id %>"><%= album.title %></a>
+      <a href="/albums/<%= album.id %>"><%= album.title %><br></a>
     <% end %>
-
+    <br><br><br><a href="/">Home</a>
   </body>
 </html>
