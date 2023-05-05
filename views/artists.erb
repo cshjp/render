@@ -2,9 +2,9 @@
   <head></head>
   <body style="background-image:url('https://static01.nyt.com/images/2020/03/05/us/05xp-clinton/merlin_11228189_0be33503-799d-4877-977c-9f3fb6db2496-superJumbo.jpg');">
     <h1>Artists</h1>
-
+    <a href="/artists/new">Add a new artist here</a><br><br>
     <% @artists.each do |artist| %>
-      <a href="/artists/<%= artist.id %>"><%= artist.name %></a>
+      <a href="/artists/<%= artist.id %>"><%= artist.name %></a><br>
     <% end %>
 
   </body>
