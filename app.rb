@@ -25,8 +25,9 @@ class Application < Sinatra::Base
   post '/albums/created' do
     @title = params[:album_title]
     @release_year = params[:album_release_year]
-    @artist_id = params[:album_artist_id]
+    @artist = params[:album_artist]
     repo = AlbumRepository.new
+    @artist_id = ArtistRepository.new.find_name(@artist).id
     new_album = Album.new
     new_album.title = @title
     new_album.release_year = @release_year

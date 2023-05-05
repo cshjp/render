@@ -38,6 +38,18 @@ class ArtistRepository
     return artist
   end
 
+  def find_name(name)
+    sql = 'SELECT id, name, genre FROM artists WHERE name = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [name])
+
+    artist = Artist.new
+    artist.id = result_set[0]['id'].to_i
+    artist.name = result_set[0]['name']
+    artist.genre = result_set[0]['genre']
+
+    return artist
+  end
+
   def create(artist)
     sql = 'INSERT INTO artists (name, genre) VALUES ($1, $2);'
     result_set = DatabaseConnection.exec_params(sql, [artist.name, artist.genre])
